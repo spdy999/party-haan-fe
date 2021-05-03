@@ -1,3 +1,5 @@
+import { Container } from '@material-ui/core';
+
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <div>{children}</div>;
+  return <Container>{children}</Container>;
 }
