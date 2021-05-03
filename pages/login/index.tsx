@@ -1,7 +1,6 @@
-import { Formik, Form, Field } from 'formik';
-import { Button, LinearProgress } from '@material-ui/core';
-import { TextField } from 'formik-material-ui';
+import { Formik } from 'formik';
 import Layout from '../../components/layout';
+import LoginForm from '../../components/LoginForm';
 
 interface Values {
   email: string;
@@ -35,35 +34,7 @@ export default function Login() {
         }}
       >
         {({ submitForm, isSubmitting }) => (
-          <Form>
-            <Field
-              component={TextField}
-              name="email"
-              type="email"
-              label="อีเมล"
-            />
-            <br />
-            <Field
-              component={TextField}
-              type="password"
-              label="รหัสผ่าน"
-              name="password"
-            />
-            {isSubmitting && <LinearProgress />}
-            <br />
-            <Button
-              variant="contained"
-              color="primary"
-              disabled={isSubmitting}
-              onClick={submitForm}
-            >
-              เข้าสู่ระบบ
-            </Button>
-            <br />
-            <Button variant="contained" color="primary">
-              สร้างบัญชีผู้ใช้
-            </Button>
-          </Form>
+          <LoginForm submitForm={submitForm} isSubmitting={isSubmitting} />
         )}
       </Formik>
     </Layout>
