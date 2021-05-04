@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import Image from 'next/image';
 import Layout from '../../components/layout';
 import LoginForm from '../../components/LoginForm';
+import { useAppContext } from '../../context/state';
 
 interface Values {
   email: string;
@@ -9,8 +10,11 @@ interface Values {
 }
 
 export default function Login() {
+  const { message } = useAppContext();
+  // const { message } = useAppContext();
   return (
     <Layout>
+      <div>{message}</div>
       <div style={{ margin: '0 0 40px 0' }}>
         <Image
           src="/images/logo.png"
