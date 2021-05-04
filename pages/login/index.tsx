@@ -11,12 +11,14 @@ interface Values {
 export default function Login() {
   return (
     <Layout>
-      <Image
-        src="/images/logo.png"
-        alt="Picture of the author"
-        width={90}
-        height={90}
-      />
+      <div style={{ margin: '0 0 40px 0' }}>
+        <Image
+          src="/images/logo.png"
+          alt="Picture of the author"
+          width={90}
+          height={90}
+        />
+      </div>
       <Formik
         initialValues={{
           email: '',
