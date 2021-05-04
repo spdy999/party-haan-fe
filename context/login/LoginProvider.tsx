@@ -5,7 +5,7 @@ const LoginContext = createContext({ loginMessage: 'startMsg' });
 export function LoginContextWrapper({ children }) {
   const sharedState = {
     /* whatever you want */
-    loginMessage: 'Login HelloWorld!',
+    loginMessage: 'Login HelloWorld update!',
   };
 
   return (

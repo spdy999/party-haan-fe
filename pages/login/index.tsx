@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Layout from '../../components/layout';
 import LoginForm from '../../components/LoginForm';
 import { useAppContext } from '../../context/state';
-import { useLoginContext } from '../../context/login/state';
+import { useLoginContext } from '../../context/login/LoginProvider';
 
 interface Values {
   email: string;
