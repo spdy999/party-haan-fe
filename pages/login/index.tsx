@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import Image from 'next/image';
 import Layout from '../../components/layout';
 import LoginForm from '../../components/LoginForm';
 
@@ -10,6 +11,12 @@ interface Values {
 export default function Login() {
   return (
     <Layout>
+      <Image
+        src="/images/logo.png"
+        alt="Picture of the author"
+        width={90}
+        height={90}
+      />
       <Formik
         initialValues={{
           email: '',
