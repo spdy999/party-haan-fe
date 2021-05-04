@@ -1,5 +1,5 @@
 import { Form, Field } from 'formik';
-import { Button, LinearProgress, Box } from '@material-ui/core';
+import { Button, LinearProgress, Box, Link } from '@material-ui/core';
 import { TextField } from 'formik-material-ui';
 interface Props {
   isSubmitting: boolean;
@@ -27,11 +27,13 @@ export default function LoginForm({ isSubmitting, submitForm }: Props) {
           onClick={submitForm}
         >
           เข้าสู่ระบบ
-      </Button>
+        </Button>
         <br />
-        <Button variant="contained" color="primary">
-          สร้างบัญชีผู้ใช้
-      </Button>
+        <Link href="/register">
+          <Button variant="contained" color="primary">
+            สร้างบัญชีผู้ใช้
+          </Button>
+        </Link>
       </div>
     </Form>
   );
