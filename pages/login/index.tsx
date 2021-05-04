@@ -4,6 +4,8 @@ import Layout from '../../components/layout';
 import LoginForm from '../../components/LoginForm';
 import { useAppContext } from '../../context/state';
 import { useLoginContext } from '../../context/login/LoginProvider';
+import axios from 'axios';
+import { LoginRespBody } from '../../context/login/reducer';
 
 interface Values {
   email: string;
@@ -12,7 +14,7 @@ interface Values {
 
 export default function Login() {
   const { message } = useAppContext();
-  const { loginMessage } = useLoginContext();
+  const { loginMessage, On } = useLoginContext();
   return (
     <Layout>
       <div>{message}</div>
@@ -41,11 +43,18 @@ export default function Login() {
           }
           return errors;
         }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            setSubmitting(false);
-            alert(JSON.stringify(values, null, 2));
-          }, 500);
+        onSubmit={async (values, { setSubmitting }) => {
+          try {
+            const resp: LoginRespBody = await axios.post(
+              'http://localhost:4000/auth/login',
+              values,
+            );
+            On();
+
+            console.log('successful login: ', resp.body);
+          } catch (error) {
+            console.log(error);
+          }
         }}
       >
         {({ submitForm, isSubmitting }) => (
